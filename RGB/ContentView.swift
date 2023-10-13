@@ -8,14 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var redComponent: Double = 0.5
+    @State var greenComponent: Double = 0.5
+    @State var blueComponent: Double = 0.5
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Slider(value: $redComponent)
+                .colorMultiply(.red)
+            Slider(value: $greenComponent)
+                .colorMultiply(.green)
+            Slider(value: $blueComponent)
+                .colorMultiply(.blue)
+            Color(red: redComponent, green: greenComponent, blue: blueComponent)
         }
-        .padding()
+        .padding(.all, 10.0)
     }
 }
 
@@ -24,3 +32,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
